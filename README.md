@@ -1,6 +1,6 @@
 # Example App using Harness iOS SDK (ff-ios-client-sdk) for Demo purposes
 
-This Demo App uses (https://qb.harness.io/ng/#/account/zEaak-FLS425IEO7OLzMUg/cf/orgs/Harness/projects/TNHUFF_PROJECT/feature-flags) QB environment for sending SSE events to the app.
+This Demo App uses (https://uat.harness.io/ng/#/account/AQ8xhfNCRtGIUjq5bSM8Fg/cf/orgs/default/projects/featureflag/feature-flags) UAT environment for sending SSE events to the app.
 
 ### Accounts used:
 | No. | Account |
@@ -14,7 +14,7 @@ This Demo App uses (https://qb.harness.io/ng/#/account/zEaak-FLS425IEO7OLzMUg/cf
 
 During initialization, credentials used are:
 
- `apiKey` ---> `93e00649-33af-41f4-ac7a-173004b8d6ff`
+ `apiKey` ---> `YOUR_API_KEY` -> Replace with the API Key for your account.
  
  `target` ---> one of the above accounts, selected from the list, on the first screen of the Demo App.
 
