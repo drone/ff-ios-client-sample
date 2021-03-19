@@ -21,7 +21,7 @@
 		AF7A103825DB063000537C0C /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7A103725DB063000537C0C /* FeatureCell.swift */; };
 		AF7A103D25DB0E6E00537C0C /* FeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7A103C25DB0E6E00537C0C /* FeatureCard.swift */; };
 		AF7A104125DB18B500537C0C /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7A104025DB18B500537C0C /* CollectionHeaderView.swift */; };
-		AFAD213D25EFF17700F5DD1E /* ff-ios-client-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = AFAD213C25EFF17700F5DD1E /* ff-ios-client-sdk */; };
+		AFBFFAF92604A71B00FE3D03 /* ff-ios-client-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = AFBFFAF82604A71B00FE3D03 /* ff-ios-client-sdk */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFAD213D25EFF17700F5DD1E /* ff-ios-client-sdk in Frameworks */,
+				AFBFFAF92604A71B00FE3D03 /* ff-ios-client-sdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +172,7 @@
 			);
 			name = CFiOSExample;
 			packageProductDependencies = (
-				AFAD213C25EFF17700F5DD1E /* ff-ios-client-sdk */,
+				AFBFFAF82604A71B00FE3D03 /* ff-ios-client-sdk */,
 			);
 			productName = CFiOSExample;
 			productReference = AF468CEE25AF3249008D4E75 /* CFiOSExample.app */;
@@ -202,7 +202,7 @@
 			);
 			mainGroup = AF468CE525AF3249008D4E75;
 			packageReferences = (
-				AFAD213B25EFF17700F5DD1E /* XCRemoteSwiftPackageReference "ff-ios-client-sdk" */,
+				AFBFFAF72604A71B00FE3D03 /* XCRemoteSwiftPackageReference "ff-ios-client-sdk" */,
 			);
 			productRefGroup = AF468CEF25AF3249008D4E75 /* Products */;
 			projectDirPath = "";
@@ -445,20 +445,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AFAD213B25EFF17700F5DD1E /* XCRemoteSwiftPackageReference "ff-ios-client-sdk" */ = {
+		AFBFFAF72604A71B00FE3D03 /* XCRemoteSwiftPackageReference "ff-ios-client-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dusan-juranovic/ff-ios-client-sdk.git";
+			repositoryURL = "https://github.com/drone/ff-ios-client-sdk";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.0.1;
+				minimumVersion = 0.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AFAD213C25EFF17700F5DD1E /* ff-ios-client-sdk */ = {
+		AFBFFAF82604A71B00FE3D03 /* ff-ios-client-sdk */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AFAD213B25EFF17700F5DD1E /* XCRemoteSwiftPackageReference "ff-ios-client-sdk" */;
+			package = AFBFFAF72604A71B00FE3D03 /* XCRemoteSwiftPackageReference "ff-ios-client-sdk" */;
 			productName = "ff-ios-client-sdk";
 		};
 /* End XCSwiftPackageProductDependency section */

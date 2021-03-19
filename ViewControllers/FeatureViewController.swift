@@ -59,6 +59,7 @@ class FeatureViewController: UIViewController {
 		layout.itemSize = CGSize(width: self.view.bounds.width / 2 - minSpacing, height: 220)
 		layout.minimumInteritemSpacing = minSpacing
 		layout.minimumLineSpacing = minSpacing
+		layout.headerReferenceSize = CGSize(width: self.collectionView.frame.size.width, height: 30)
 		collectionView.collectionViewLayout = layout
 	}
 	@IBAction func getById(_ sender: Any) {

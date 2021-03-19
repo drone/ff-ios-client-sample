@@ -24,16 +24,6 @@ class ViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	var authorizedAccount = ""
 	
-	enum ENV {
-		case qb
-		case uat
-	}
-	private var defEnv = ENV.qb {
-		didSet {
-			self.tableView.reloadData()
-		}
-	}
-	
 	var evaluations: [Evaluation]? {
 		didSet {
 			DispatchQueue.main.async {
@@ -45,7 +35,6 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = "CF mobile SDK Demo"
-		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
