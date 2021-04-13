@@ -45,9 +45,9 @@ class ViewController: UIViewController {
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
 	}
 	
-	func authorizeWith(account: String, onCompletion:@escaping(Bool)->()) {
+	func authorizeWith(account: String, onComp  
 		authorizedAccount = account
-		let apiKey = "5d59cb10-66cb-405b-ab54-b4d48132f383"
+		let apiKey = "YOUR_API_KEY"
 		let config = CfConfiguration.builder().setStreamEnabled(true).build()
 		let target = CfTarget.builder().setIdentifier(account).build()
 		CfClient.sharedInstance.initialize(apiKey: apiKey, configuration:config, target: target) { [weak self] result in
