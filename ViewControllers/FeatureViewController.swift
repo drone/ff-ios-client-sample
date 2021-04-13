@@ -116,6 +116,11 @@ class FeatureViewController: UIViewController {
 			case .HarnessAppDemoDarkMode:
 				guard let darkMode = value.boolValue else {return}
 				self.darkMode = darkMode
+				if darkMode {
+					self.view.backgroundColor = UIColor.black
+				} else {
+					self.view.backgroundColor = UIColor(red: 248/255, green: 249/255, blue: 250/255, alpha: 1)
+				}
 				
 			case .HarnessAppDemoCeTrialLimit:
 				guard let int = value.intValue else {return}
