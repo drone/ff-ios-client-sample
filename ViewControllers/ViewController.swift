@@ -45,7 +45,7 @@ class ViewController: UIViewController {
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
 	}
 	
-	func authorizeWith(account: String, onComp  
+	func authorizeWith(account: String, onCompletion:@escaping(Bool)->()) {
 		authorizedAccount = account
 		let apiKey = "YOUR_API_KEY"
 		let config = CfConfiguration.builder().setStreamEnabled(true).build()
