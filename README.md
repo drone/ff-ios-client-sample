@@ -16,6 +16,6 @@ During initialization, credentials used are:
 
  `apiKey` ---> `YOUR_API_KEY` -> Replace with the API Key for your account.
  
- `target` ---> one of the above accounts, selected from the list, on the first screen of the Demo App.
+ `CfTarget.identifier` ---> one of the above accounts, selected from the list, on the first screen of the Demo App.
 
  In order to change the account, you would need to go back to the initial screen and select a different account to use.
