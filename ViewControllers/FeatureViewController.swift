@@ -25,6 +25,9 @@ class FeatureViewController: UIViewController {
 		super.viewDidLoad()
 		setupNeedHelpButton()
 		setupLayoutFlow()
+        
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
 		
 		CfClient.sharedInstance.registerEventsListener() { (result) in
 			switch result {
@@ -113,17 +116,6 @@ class FeatureViewController: UIViewController {
 			case .HarnessAppDemoDarkMode:
 				guard let darkMode = value.boolValue else {return}
 				self.darkMode = darkMode
-				if darkMode {
-					self.view.backgroundColor = UIColor.black
-					self.navigationController?.navigationBar.barStyle = .black
-					self.navigationController?.navigationBar.tintColor = .white
-					self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-				} else {
-					self.view.backgroundColor = UIColor(red: 248/255, green: 249/255, blue: 250/255, alpha: 1)
-					self.navigationController?.navigationBar.barStyle = .default
-					self.navigationController?.navigationBar.tintColor = .black
-					self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
-				}
 				
 			case .HarnessAppDemoCeTrialLimit:
 				guard let int = value.intValue else {return}

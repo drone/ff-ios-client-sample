@@ -40,8 +40,9 @@ class ViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.navigationController?.navigationBar.barStyle = .default
-		self.navigationController?.navigationBar.tintColor = .black
-		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+		self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .systemBlue
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
 	}
 	
 	func authorizeWith(account: String, onCompletion:@escaping(Bool)->()) {
@@ -92,8 +93,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 		
 		headerLabel.text = "Choose your account"
 		headerLabel.textAlignment = .center
-		headerLabel.textColor = .white
-		headerLabel.backgroundColor = UIColor(red: 61/255, green: 173/255, blue: 228/255, alpha: 1)
+		headerLabel.textColor = .black
+        headerLabel.font = .boldSystemFont(ofSize: 18)
 		return headerLabel
 	}
 	
