@@ -40,13 +40,14 @@ class ViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.navigationController?.navigationBar.barStyle = .default
-		self.navigationController?.navigationBar.tintColor = .black
-		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+		self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .systemBlue
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
 	}
 	
 	func authorizeWith(account: String, onCompletion:@escaping(Bool)->()) {
 		authorizedAccount = account
-		let apiKey = "YOUR_API_KEY"
+		let apiKey = "5d59cb10-66cb-405b-ab54-b4d48132f383"
 		let config = CfConfiguration.builder().setStreamEnabled(true).build()
 		let target = CfTarget.builder().setIdentifier(account).build()
 		CfClient.sharedInstance.initialize(apiKey: apiKey, configuration:config, target: target) { [weak self] result in
@@ -92,8 +93,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 		
 		headerLabel.text = "Choose your account"
 		headerLabel.textAlignment = .center
-		headerLabel.textColor = .white
-		headerLabel.backgroundColor = UIColor(red: 61/255, green: 173/255, blue: 228/255, alpha: 1)
+		headerLabel.textColor = .black
+        headerLabel.font = .boldSystemFont(ofSize: 18)
 		return headerLabel
 	}
 	

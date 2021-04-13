@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -47,7 +48,7 @@
                                                             </constraints>
                                                         </activityIndicatorView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.2390719056" green="0.67648106809999997" blue="0.89501869680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="AccentColor"/>
                                                     <constraints>
                                                         <constraint firstItem="2ah-h8-49a" firstAttribute="leading" secondItem="wDd-5X-dO4" secondAttribute="leading" constant="20" symbolic="YES" id="DGg-Gl-0Uv"/>
                                                         <constraint firstAttribute="trailing" secondItem="2ah-h8-49a" secondAttribute="trailing" constant="20" symbolic="YES" id="Ir7-Kp-oSg"/>
@@ -284,6 +285,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
