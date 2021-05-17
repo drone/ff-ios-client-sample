@@ -25,6 +25,9 @@ class FeatureViewController: UIViewController {
 		super.viewDidLoad()
 		setupNeedHelpButton()
 		setupLayoutFlow()
+        
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
 		
 		CfClient.sharedInstance.registerEventsListener() { (result) in
 			switch result {
@@ -59,6 +62,7 @@ class FeatureViewController: UIViewController {
 		layout.itemSize = CGSize(width: self.view.bounds.width / 2 - minSpacing, height: 220)
 		layout.minimumInteritemSpacing = minSpacing
 		layout.minimumLineSpacing = minSpacing
+		layout.headerReferenceSize = CGSize(width: self.collectionView.frame.size.width, height: 30)
 		collectionView.collectionViewLayout = layout
 	}
 	@IBAction func getById(_ sender: Any) {
@@ -114,14 +118,8 @@ class FeatureViewController: UIViewController {
 				self.darkMode = darkMode
 				if darkMode {
 					self.view.backgroundColor = UIColor.black
-					self.navigationController?.navigationBar.barStyle = .black
-					self.navigationController?.navigationBar.tintColor = .white
-					self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
 				} else {
 					self.view.backgroundColor = UIColor(red: 248/255, green: 249/255, blue: 250/255, alpha: 1)
-					self.navigationController?.navigationBar.barStyle = .default
-					self.navigationController?.navigationBar.tintColor = .black
-					self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
 				}
 				
 			case .HarnessAppDemoCeTrialLimit:
