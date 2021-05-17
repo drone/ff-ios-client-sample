@@ -33,20 +33,22 @@ class FeatureViewController: UIViewController {
 				case .success(let eventType):
 					switch eventType {
 						case .onPolling(let evaluations):
-							for eval in evaluations! {
+							print("Event: Received all evaluation flags")
+                            for eval in evaluations! {
 								self.setupViewPreferences(evaluation: eval)
 							}
 						case .onEventListener(let evaluation):
+                            print("Event: Received an evaluation flag")
 							guard let evaluation = evaluation else {
 								return
 							}
 							self.setupViewPreferences(evaluation: evaluation)
 						case .onComplete:
-							print("Stream has completed")
+							print("Event: SSE stream has completed")
 						case .onOpen:
-							print("Stream has been opened")
+							print("Event: SSE stream has been opened")
 						case .onMessage(let messageObj):
-							print(messageObj?.event ?? "Message received")
+							print(messageObj?.event ?? "Event: Message received")
 					}
 			}
 		}

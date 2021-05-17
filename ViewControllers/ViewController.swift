@@ -74,6 +74,7 @@ class ViewController: UIViewController {
 		self.navigationController?.navigationBar.tintColor = .black
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
 	}
+    
 	@IBAction func envButton(_ sender: UIBarButtonItem) {
 		let alert = UIAlertController(title: "Choose your environment", message: nil, preferredStyle: .actionSheet)
 		let qbEnv = UIAlertAction(title: "QB - requires VPN", style: .default, handler: { _ in
