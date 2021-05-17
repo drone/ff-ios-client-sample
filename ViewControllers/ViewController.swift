@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 		case qb
 		case uat
 	}
-	private var defEnv = ENV.qb {
+	private var defEnv = ENV.uat {
 		didSet {
 			self.tableView.reloadData()
 		}
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 			eventUrl  = "http://34.82.119.242/api/1.0"
 		} else {
 			envName = "UAT"
-			apiKey    = "5d59cb10-66cb-405b-ab54-b4d48132f383"
+			apiKey    = "ad1d75f6-0e94-4e34-b54c-db95b9325ae3"
 			configUrl = "https://config.feature-flags.uat.harness.io/api/1.0"
 			eventUrl  = "https://config.feature-flags.uat.harness.io/api/1.0"
 		}
