@@ -93,10 +93,23 @@ class ViewController: UIViewController {
 	}
 	
 	func authorizeWith(account: String, onCompletion:@escaping(Bool)->()) {
-		authorizedAccount = account
-		let config = CfConfiguration.builder().setStreamEnabled(true).setConfigUrl(getEnv(defEnv).configUrl).setEventUrl(getEnv(defEnv).eventUrl).setPollingInterval(10).build()
-		let target = CfTarget.builder().setIdentifier(account).build()
-		CfClient.sharedInstance.initialize(apiKey: getEnv(defEnv).apiKey, configuration:config, target: target) { [weak self] result in
+		
+        authorizedAccount = account
+		
+        let config = CfConfiguration.builder()
+            .setStreamEnabled(true)
+            .setConfigUrl(getEnv(defEnv).configUrl)
+            .setEventUrl(getEnv(defEnv).eventUrl)
+            .setPollingInterval(10).build()
+		
+        let target = CfTarget.builder().setIdentifier(account).build()
+		CfClient.sharedInstance.initialize(
+            
+            apiKey: getEnv(defEnv).apiKey,
+            configuration:config,
+            target: target
+        
+        ) { [weak self] result in
 			switch result {
 				case .failure(let error):
 					self?.showAlert(title: error.errorData.title ?? "", message: error.errorData.localizedMessage ?? "")
