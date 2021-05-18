@@ -49,7 +49,7 @@ class ViewController: UIViewController {
 			envName = "UAT"
 			apiKey    = "ad1d75f6-0e94-4e34-b54c-db95b9325ae3"
 			configUrl = "https://config.feature-flags.uat.harness.io/api/1.0"
-			eventUrl  = "https://config.feature-flags.uat.harness.io/api/1.0"
+			eventUrl  = "https://config.feature-flags.uat.harness.io/api/1.0/stream"
 		}
 		return (name:envName, apiKey:apiKey, configUrl:configUrl, eventUrl:eventUrl)
 	}
