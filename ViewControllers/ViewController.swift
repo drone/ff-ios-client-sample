@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 		case qb
 		case uat
 	}
-	private var defEnv = ENV.qb {
+	private var defEnv = ENV.uat {
 		didSet {
 			self.tableView.reloadData()
 		}
@@ -47,9 +47,9 @@ class ViewController: UIViewController {
 			eventUrl  = "http://34.82.119.242/api/1.0"
 		} else {
 			envName = "UAT"
-			apiKey    = "5d59cb10-66cb-405b-ab54-b4d48132f383"
+			apiKey    = "ad1d75f6-0e94-4e34-b54c-db95b9325ae3"
 			configUrl = "https://config.feature-flags.uat.harness.io/api/1.0"
-			eventUrl  = "https://config.feature-flags.uat.harness.io/api/1.0"
+			eventUrl  = "https://config.feature-flags.uat.harness.io/api/1.0/stream"
 		}
 		return (name:envName, apiKey:apiKey, configUrl:configUrl, eventUrl:eventUrl)
 	}
@@ -74,6 +74,7 @@ class ViewController: UIViewController {
 		self.navigationController?.navigationBar.tintColor = .black
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
 	}
+    
 	@IBAction func envButton(_ sender: UIBarButtonItem) {
 		let alert = UIAlertController(title: "Choose your environment", message: nil, preferredStyle: .actionSheet)
 		let qbEnv = UIAlertAction(title: "QB - requires VPN", style: .default, handler: { _ in
@@ -93,10 +94,23 @@ class ViewController: UIViewController {
 	}
 	
 	func authorizeWith(account: String, onCompletion:@escaping(Bool)->()) {
-		authorizedAccount = account
-		let config = CfConfiguration.builder().setStreamEnabled(true).setConfigUrl(getEnv(defEnv).configUrl).setEventUrl(getEnv(defEnv).eventUrl).setPollingInterval(10).build()
-		let target = CfTarget.builder().setIdentifier(account).build()
-		CfClient.sharedInstance.initialize(apiKey: getEnv(defEnv).apiKey, configuration:config, target: target) { [weak self] result in
+		
+        authorizedAccount = account
+		
+        let config = CfConfiguration.builder()
+            .setStreamEnabled(true)
+            .setConfigUrl(getEnv(defEnv).configUrl)
+            .setEventUrl(getEnv(defEnv).eventUrl)
+            .setPollingInterval(10).build()
+		
+        let target = CfTarget.builder().setIdentifier(account).build()
+		CfClient.sharedInstance.initialize(
+            
+            apiKey: getEnv(defEnv).apiKey,
+            configuration:config,
+            target: target
+        
+        ) { [weak self] result in
 			switch result {
 				case .failure(let error):
 					self?.showAlert(title: error.errorData.title ?? "", message: error.errorData.localizedMessage ?? "")
