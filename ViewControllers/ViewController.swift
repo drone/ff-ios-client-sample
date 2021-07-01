@@ -35,23 +35,22 @@ class ViewController: UIViewController {
 			self.tableView.reloadData()
 		}
 	}
-	func getEnv(_ env: ENV) -> (name:String, apiKey:String, configUrl:String, eventUrl:String) {
-		var envName = ""
+	func getEnv(_ env: ENV) -> (name:String, apiKey:String) {
+	
+        var envName = ""
 		var apiKey = ""
-		var configUrl = ""
-		var eventUrl = ""
+    
 		if defEnv == .qb {
-			envName = "QB"
-			apiKey    = "93e00649-33af-41f4-ac7a-173004b8d6ff"
-			configUrl = "http://34.82.119.242/api/1.0"
-			eventUrl  = "http://34.82.119.242/api/1.0"
+		
+            envName = "QB"
+			apiKey    = "YOUR_API_KEY"
 		} else {
-			envName = "UAT"
-			apiKey    = "ad1d75f6-0e94-4e34-b54c-db95b9325ae3"
-			configUrl = "https://config.feature-flags.uat.harness.io/api/1.0"
-			eventUrl  = "https://config.feature-flags.uat.harness.io/api/1.0/stream"
+			
+            envName = "PROD"
+			apiKey    = "YOUR_API_KEY"
 		}
-		return (name:envName, apiKey:apiKey, configUrl:configUrl, eventUrl:eventUrl)
+		
+        return (name:envName, apiKey:apiKey)
 	}
 	
 	var evaluations: [Evaluation]? {
@@ -99,9 +98,10 @@ class ViewController: UIViewController {
 		
         let config = CfConfiguration.builder()
             .setStreamEnabled(true)
-            .setConfigUrl(getEnv(defEnv).configUrl)
-            .setEventUrl(getEnv(defEnv).eventUrl)
-            .setPollingInterval(10).build()
+            .setConfigUrl("https://config.feature-flags.uat.harness.io/api/1.0")
+            .setEventUrl("https://event.feature-flags.uat.harness.io/api/1.0")
+            .setStreamUrl("https://config.feature-flags.uat.harness.io/api/1.0/stream")
+            .build()
 		
         let target = CfTarget.builder().setIdentifier(account).build()
 		CfClient.sharedInstance.initialize(

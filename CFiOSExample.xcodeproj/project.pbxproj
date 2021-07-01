@@ -450,7 +450,7 @@
 			repositoryURL = "https://github.com/drone/ff-ios-client-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 1.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
