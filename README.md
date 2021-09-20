@@ -1,3 +1,9 @@
+# Before you Begin
+Harness Feature Flags (FF) is a feature management solution that enables users to change the software's functionality, without deploying new code. FF uses feature flags to hide code or behaviors without having to ship new versions of the software. A feature flag is like a powerful if statement.
+
+For more information see https://harness.io/blog/introducing-harness-feature-flags/
+
+
 # Example App using Harness iOS SDK (ff-ios-client-sdk) for Demo purposes
 
 This Demo App uses (https://qb.harness.io/ng/#/account/zEaak-FLS425IEO7OLzMUg/cf/orgs/Harness/projects/TNHUFF_PROJECT/feature-flags) QB environment for sending SSE events to the app.
