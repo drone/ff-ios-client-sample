@@ -25,34 +25,6 @@ class ViewController: UIViewController {
 	var project: CfProject?
 	var authorizedAccount = ""
 	
-	
-	enum ENV {
-		case qb
-		case uat
-	}
-	private var defEnv = ENV.uat {
-		didSet {
-			self.tableView.reloadData()
-		}
-	}
-	func getEnv(_ env: ENV) -> (name:String, apiKey:String) {
-	
-        var envName = ""
-		var apiKey = ""
-    
-		if defEnv == .qb {
-		
-            envName = "QB"
-			apiKey    = "YOUR_API_KEY"
-		} else {
-			
-            envName = "PROD"
-			apiKey    = "YOUR_API_KEY"
-		}
-		
-        return (name:envName, apiKey:apiKey)
-	}
-	
 	var evaluations: [Evaluation]? {
 		didSet {
 			DispatchQueue.main.async {
@@ -64,7 +36,6 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = "CF mobile SDK Demo"
-		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -75,19 +46,10 @@ class ViewController: UIViewController {
 	}
     
 	@IBAction func envButton(_ sender: UIBarButtonItem) {
-		let alert = UIAlertController(title: "Choose your environment", message: nil, preferredStyle: .actionSheet)
-		let qbEnv = UIAlertAction(title: "QB - requires VPN", style: .default, handler: { _ in
-			self.defEnv = .qb
-		})
 		
-		let uatEnv = UIAlertAction(title: "UAT", style: .default, handler: { _ in
-			self.defEnv = .uat
-		})
-		
+        let alert = UIAlertController(title: "Choose your environment", message: nil, preferredStyle: .actionSheet)
 		let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
 		
-		alert.addAction(qbEnv)
-		alert.addAction(uatEnv)
 		alert.addAction(cancel)
 		self.present(alert, animated: true, completion: nil)
 	}
@@ -98,15 +60,16 @@ class ViewController: UIViewController {
 		
         let config = CfConfiguration.builder()
             .setStreamEnabled(true)
-            .setConfigUrl("https://config.feature-flags.uat.harness.io/api/1.0")
-            .setEventUrl("https://event.feature-flags.uat.harness.io/api/1.0")
-            .setStreamUrl("https://config.feature-flags.uat.harness.io/api/1.0/stream")
+//            .setConfigUrl("https://config.feature-flags.uat.harness.io/api/1.0")
+//            .setEventUrl("https://event.feature-flags.uat.harness.io/api/1.0")
+//            .setStreamUrl("https://config.feature-flags.uat.harness.io/api/1.0/stream")
             .build()
 		
-        let target = CfTarget.builder().setIdentifier(account).build()
+        let target = CfTarget.builder().setName(account).setIdentifier(account).build()
+        
 		CfClient.sharedInstance.initialize(
             
-            apiKey: getEnv(defEnv).apiKey,
+            apiKey: "d92cf64f-7f00-43ce-8d30-5760d0c2bec9",
             configuration:config,
             target: target
         
@@ -151,7 +114,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerLabel = UILabel()
 		
-		headerLabel.text = "Choose your account - \(getEnv(defEnv).name) env"
+		headerLabel.text = "Choose your account"
 		headerLabel.textAlignment = .center
 		headerLabel.textColor = .white
 		headerLabel.backgroundColor = UIColor(red: 61/255, green: 173/255, blue: 228/255, alpha: 1)
@@ -161,7 +124,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == SegueIdentifiers.detailSegue.rawValue {
 			let destination = segue.destination as? FeatureViewController
-			destination?.title = authorizedAccount + " on " + " \(getEnv(defEnv).name)"
+			destination?.title = authorizedAccount
 		}
 	}
 }
